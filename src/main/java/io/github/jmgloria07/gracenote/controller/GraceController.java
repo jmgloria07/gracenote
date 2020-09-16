@@ -16,12 +16,12 @@ public class GraceController {
 	@Autowired
 	GraceService graceService;
 	
-	@GetMapping(path = "{user}/grace/{id}") 
+	@GetMapping(path = "/{user}/grace/{id}") 
 	public Grace getGrace(@PathVariable String user, @PathVariable String id) {
 		return graceService.getGrace(user, id);
 	}
 	
-	@GetMapping(path = "{user}/grace/") 
+	@GetMapping(path = "/{user}/grace/") 
 	public List<Grace> getGrace(@PathVariable String user) {
 		return graceService.getGrace(user);
 	}
