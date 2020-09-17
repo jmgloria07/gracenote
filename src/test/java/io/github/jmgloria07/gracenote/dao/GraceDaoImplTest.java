@@ -102,8 +102,7 @@ public class GraceDaoImplTest {
 	//user is missing
 	@Test
 	public void testMissingUserPostGrace() {
-		
-		//create a valid parameter
+		//create a user not found parameter
 		Grace graceParam = new Grace();
 		Opening openingParam = new Opening();
 		openingParam.setId(MOCK_OPENING_ID);
@@ -118,8 +117,7 @@ public class GraceDaoImplTest {
 	//opening is missing
 	@Test
 	public void testMissingOpeningPostGrace() {
-		
-		//create a valid parameter
+		//create an opening not found parameter
 		Grace graceParam = new Grace();
 		Opening openingParam = new Opening();
 		openingParam.setId(MOCK_MISSING_OPENING_ID);
