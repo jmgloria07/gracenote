@@ -6,15 +6,18 @@ Grace Note is a social network aware application that allows a user to note and/
 This project is designed as a REST application that connects to an RDBMS repository.
 
 ## Motivation
-There are three thoughts that motivated me to do this project.
+There are three points that motivated me to do this project.
 
-One is to help everyone write grateful thoughts.
+First is to help everyone express their thoughts. Studies have shown that detailing one's emotions through writing promotes one's mental well-being.<sup>1 2</sup> It's one way to cope with overwhelming stress.
 
-Two is to create a social network filled with positivity.
+Another is to create a social network filled with positivity. Gratefulness is equated to positivity and I think it would be nice to scroll through a fully positive feed.
 
-Lastly is to practice the tools I'm learning JPA, Spring Boot, Design patterns, etc.
+Lastly is to practice the tools I'm learning: JPA, Spring Boot, Design patterns, etc. I want to get my hands dirty with these tools and learn how to work with them.
 
-- **TODO***: discuss these three further*
+<sub><b>1</b>: [Expressive Writing for Mental Health](https://www.health.harvard.edu/newsletter_article/expressive-writing-for-mental-health). Retrieved September 17, 2020.</sub>
+
+<sub><b>2</b>: [What Psychological Science Knows About Achieving Happiness](http://sonjalyubomirsky.com/files/2012/09/Nelson-Kurtz-Lyubomirsky-in-press.pdf). Retrieved September 17, 2020.</sub>
+
 
 ## Setup
 I made this application in Eclipse 2020-06 (4.16.0), with full support for Java EE. Initial Spring classes and Maven config files are generated via Spring Initializr.
@@ -56,6 +59,6 @@ With this you can then run your server instance (usually localhost:8080) on your
 - Create a Feed
 - Create logging implementation.
 - Improve Swagger documentation.
-- Add share to other social networks (use Toktive? or perhaps let the client application do this with their corresponding provided share buttons).
+- Add share to other social networks (use [Toktive](https://github.com/jmgloria07/toktive)? or perhaps let the client application do this with their corresponding provided share buttons).
 - Create a view/user interface. Looking into starting another project for this using Angular.
 - Change DB supplier from H2.
