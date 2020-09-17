@@ -30,18 +30,6 @@ public class GraceDaoImpl implements GraceDao {
 	@Autowired 
 	OpeningRepository openingRepository;
 	
-	@Deprecated
-	@Override
-	public Grace getGrace(String user, long id) {
-		return graceRepository.findByUserNameAndId(user, id).orElseThrow(() -> new GraceNoteNotFoundException());
-	}
-
-	@Deprecated
-	@Override
-	public List<Grace> getGrace(String user) {
-		return graceRepository.findAllByUserName(user);
-	}
-	
 	@Override
 	public Grace getGrace(long userId, long graceId) {
 		User user = userRepository.findById(userId)
@@ -78,8 +66,16 @@ public class GraceDaoImpl implements GraceDao {
 		
 		return graceRepository.save(grace);
 	}
+	
+	@Deprecated
+	@Override
+	public Grace getGrace(String user, long id) {
+		return graceRepository.findByUserNameAndId(user, id).orElseThrow(() -> new GraceNoteNotFoundException());
+	}
 
-
-
-
+	@Deprecated
+	@Override
+	public List<Grace> getGrace(String user) {
+		return graceRepository.findAllByUserName(user);
+	}
 }
