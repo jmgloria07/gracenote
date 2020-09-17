@@ -38,15 +38,16 @@ Or simply run the Main class `io.github.jmgloria07.gracenote.GracenoteApplicatio
 With this you can then run your server instance (usually localhost:8080) on your web browser and, write your graces.
 
 ## REST Methods
-Note: Only the following GET methods are currently available with mocked data.
-- GET {user}/grace/ retrieves all graces associated with the user.
-- GET {user}/grace/{grace-id} retrieves a single grace associated with the user and the ID.
-- POST {user}/grace/ post a grace.
-- POST {user}/grace/{grace-id} update/edit a posted grace.
-- DELETE {user}/grace/{grace-id} delete a grace.
+- GET /users/{user}/graces/ retrieves all graces associated with the user.
+- GET /users/{user}/graces/{grace-id} retrieves a single grace associated with the user and the ID.
+- (on progress) POST /users/{user}/graces/ post a grace.
+- (on progress) POST /users/{user}/graces/{grace-id} update/edit a posted grace.
+- (to follow) DELETE /users/{user}/grace/{grace-id} delete a grace.
+- (to follow) GET /openings/
+- (to follow) GET /openings/{opening}
+- (to follow) GET /users/{user}/
 
 ## Future Plans
-- Create an actual database and remove the mocks.
 - Create the POST method calls.
 - Add validations.
 - Improve exception response.

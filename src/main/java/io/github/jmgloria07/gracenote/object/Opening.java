@@ -1,13 +1,20 @@
 package io.github.jmgloria07.gracenote.object;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Opening {
+	
+	@Id
+	@GeneratedValue
 	private long id;
+	
 	private String displayText;
 	
-	public Opening(long id, String displayText) {
-		super();
-		this.id = id;
-		this.displayText = displayText;
+	public Opening() {
+		
 	}
 	
 	public long getId() {

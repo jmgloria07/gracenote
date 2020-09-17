@@ -15,6 +15,7 @@ public class GraceServiceImpl implements GraceService {
 	@Autowired
 	GraceDao graceDao;
 	
+	@Deprecated
 	@Override
 	public Grace getGrace(String user, String id) {
 		try {
@@ -24,10 +25,17 @@ public class GraceServiceImpl implements GraceService {
 		}
 		
 	}
+	
+	@Override
+	public Grace getGrace(long userId, long graceId) {
+		return graceDao.getGrace(userId, graceId);
+	}
 
 	@Override
-	public List<Grace> getGrace(String user) {
+	public List<Grace> getGrace(long user) {
 		return graceDao.getGrace(user);
 	}
+
+	
 
 }

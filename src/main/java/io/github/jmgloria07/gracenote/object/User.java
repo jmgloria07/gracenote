@@ -1,18 +1,49 @@
 package io.github.jmgloria07.gracenote.object;
 
-public class User {
-	private String name;
+import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+@Entity
+public class User {
+	
+	@Id
+	@GeneratedValue
+	private long id;
+	
+	private String name;
+	
+	@OneToMany(mappedBy = "user")
+	private List<Grace> graces;
+	
+	public User() {
+		
+	}
+	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+	
 	public String getName() {
 		return name;
 	}
 
-	public User(String name) {
-		super();
+	public void setName(String name) {
 		this.name = name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public List<Grace> getGraces() {
+		return graces;
+	}
+
+	public void setGraces(List<Grace> graces) {
+		this.graces = graces;
 	}
 }

@@ -1,0 +1,3 @@
+insert into user(id, name) values (10001,'user1'),(10002,'user2'),(10003,'user3'),(10004,'user4'),(10005,'user5'),(10006,'user6');
+insert into opening(id,display_text) values (50001,'I''m thankful that'),(50002,'Gratitudes to'),(50003,'Thanks to'),(50004,'I''m agog that');
+insert into grace(id,text,opening_id,user_id) values(20001,'I created this mock dao',50001, 10001),(20002, 'the support I received', 50003, 10001),(20003, 'yep', 50004, 10002)

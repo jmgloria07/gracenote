@@ -19,26 +19,26 @@ public class GraceControllerTest {
 	private static final Grace MOCK_GRACE = new Grace();
 	private static final List<Grace> MOCK_GRACE_LIST = new ArrayList<Grace>();
 	
-	private static final String MOCK_USER = "user";
-	private static final String MOCK_ID = "1";
+	private static final long MOCK_USER_ID = 1L;
+	private static final long MOCK_ID = 1L;
 	
 	@BeforeAll
 	public static void init() {
 		unit = new GraceController();
 		unit.graceService = mock(GraceService.class);
 		
-		doReturn(MOCK_GRACE).when(unit.graceService).getGrace(anyString(), anyString());
-		doReturn(MOCK_GRACE_LIST).when(unit.graceService).getGrace(anyString());
+		doReturn(MOCK_GRACE).when(unit.graceService).getGrace(anyLong(), anyLong());
+		doReturn(MOCK_GRACE_LIST).when(unit.graceService).getGrace(anyLong());
 	}
 	
 	@Test
 	public void testGetSingleGrace() {
-		assertNotNull(unit.getGrace(MOCK_USER));
+		assertNotNull(unit.getGrace(MOCK_USER_ID));
 	}
 	
 	@Test
 	public void testGetGraceList() {
-		assertNotNull(unit.getGrace(MOCK_USER, MOCK_ID));
+		assertNotNull(unit.getGrace(MOCK_USER_ID, MOCK_ID));
 	}
 	
 	@AfterAll

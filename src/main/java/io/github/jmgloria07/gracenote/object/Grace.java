@@ -1,10 +1,32 @@
 package io.github.jmgloria07.gracenote.object;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+@Entity
 public class Grace {
+	
+	@Id
+	@GeneratedValue
 	private long id;
+	
+	@ManyToOne(fetch=FetchType.EAGER)
 	private Opening opening;
+	
 	private String text;
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JsonIgnore
 	private User user;
+
+	public Grace() {
+		
+	}
 	
 	public long getId() {
 		return id;
