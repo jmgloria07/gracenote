@@ -15,4 +15,6 @@ public interface GraceDao {
 	public Grace getGrace(long userId, long graceId);
 	
 	public List<Grace> getGrace(long userId);
+	
+	public Grace postGrace(Grace grace);
 }

@@ -8,7 +8,7 @@ This project is designed as a REST application that connects to an RDBMS reposit
 ## Motivation
 There are three points that motivated me to do this project.
 
-First is to help everyone express their thoughts. Studies have shown that detailing one's emotions through writing promotes one's mental well-being.<sup>1 2</sup> It's one way to cope with overwhelming stress.
+First is to help everyone express their gratitudes. Studies have shown that detailing one's emotions through writing promotes one's mental well-being.<sup>1 2</sup> It's one way to cope with overwhelming stress.
 
 Another is to create a social network filled with positivity. Gratefulness is equated to positivity and I think it would be nice to scroll through a fully positive feed.
 
@@ -41,24 +41,23 @@ Or simply run the Main class `io.github.jmgloria07.gracenote.GracenoteApplicatio
 With this you can then run your server instance (usually localhost:8080) on your web browser and, write your graces.
 
 ## REST Methods
+Basic REST methods. Please see /swagger-ui/index.html for other methods and details how they're used.
 - GET /users/{user}/graces/ retrieves all graces associated with the user.
-- GET /users/{user}/graces/{grace-id} retrieves a single grace associated with the user and the ID.
-- (on progress) POST /users/{user}/graces/ post a grace.
-- (on progress) POST /users/{user}/graces/{grace-id} update/edit a posted grace.
-- (to follow) DELETE /users/{user}/grace/{grace-id} delete a grace.
-- (to follow) GET /openings/
-- (to follow) GET /openings/{opening}
+- GET /users/{user}/graces/{grace} retrieves a single grace associated with the user and the ID.
+- POST /users/{user}/graces/ post a grace.
+- (on progress) GET /openings/
+- (on progress) GET /openings/{opening}
 - (to follow) GET /users/{user}/
+- (to follow) DELETE /users/{user}/grace/{grace-id} delete a grace.
+- (to follow) POST /users/{user}/graces/{grace-id} update/edit a posted grace.
 
 ## Future Plans
-- Create the POST method calls.
-- Add validations.
 - Improve exception response.
 - Add security and authentication.
 - Create a UserController /{user} with corresponding REST methods.
-- Create a Feed
 - Create logging implementation.
 - Improve Swagger documentation.
 - Add share to other social networks (use [Toktive](https://github.com/jmgloria07/toktive)? or perhaps let the client application do this with their corresponding provided share buttons).
 - Create a view/user interface. Looking into starting another project for this using Angular.
-- Change DB supplier from H2.
+- Change DB supplier from H2. Using H2/in memory database for now as I don't have a server to run this yet.
+- Create some sort of implementation of Like.

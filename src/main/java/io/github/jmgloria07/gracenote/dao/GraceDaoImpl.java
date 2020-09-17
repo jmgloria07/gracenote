@@ -9,10 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import io.github.jmgloria07.gracenote.dao.repository.GraceRepository;
+import io.github.jmgloria07.gracenote.dao.repository.OpeningRepository;
 import io.github.jmgloria07.gracenote.dao.repository.UserRepository;
 import io.github.jmgloria07.gracenote.object.Grace;
+import io.github.jmgloria07.gracenote.object.Opening;
 import io.github.jmgloria07.gracenote.object.User;
 import io.github.jmgloria07.gracenote.object.exception.GraceNoteNotFoundException;
+import io.github.jmgloria07.gracenote.object.exception.GraceNoteParameterException;
 
 @Repository
 @Transactional
@@ -23,6 +26,9 @@ public class GraceDaoImpl implements GraceDao {
 	
 	@Autowired 
 	UserRepository userRepository;
+	
+	@Autowired 
+	OpeningRepository openingRepository;
 	
 	@Deprecated
 	@Override
@@ -38,22 +44,39 @@ public class GraceDaoImpl implements GraceDao {
 	
 	@Override
 	public Grace getGrace(long userId, long graceId) {
-		if (userRepository.existsById(userId)) {
-			Grace grace = graceRepository.findById(graceId).orElseThrow(() -> new GraceNoteNotFoundException());
-			if (grace.getUser().getId() == userId) {
-				return grace;
-			}
-		}
-		throw new GraceNoteNotFoundException();
+		User user = userRepository.findById(userId)
+				.orElseThrow(() -> new GraceNoteNotFoundException());
+		
+		return user.getGraces().stream()
+				.filter(grace -> grace.getId() == graceId)
+				.findFirst()
+				.orElseThrow(() -> new GraceNoteNotFoundException());
 	}
 
 	@Override
 	public List<Grace> getGrace(long userId) {
-		Optional<User> user = userRepository.findById(userId);
+		User user = userRepository.findById(userId).orElseThrow(() -> new GraceNoteNotFoundException());
+		return user.getGraces();
+	}
+
+	@Override
+	public Grace postGrace(Grace grace) {
+		long userId = Optional.ofNullable(grace).map(Grace::getUser).map(User::getId)
+				.orElseThrow(() -> new GraceNoteParameterException());
 		
-		if (!user.isPresent()) throw new GraceNoteNotFoundException();
+		User user = userRepository.findById(userId)
+				.orElseThrow(() -> new GraceNoteNotFoundException());
 		
-		return user.get().getGraces();
+		long openingId = Optional.ofNullable(grace).map(Grace::getOpening).map(Opening::getId)
+				.orElseThrow(() -> new GraceNoteParameterException());
+		
+		Opening opening = openingRepository.findById(openingId)
+				.orElseThrow(() -> new GraceNoteNotFoundException());
+		
+		grace.setUser(user);
+		grace.setOpening(opening);
+		
+		return graceRepository.save(grace);
 	}
 
 

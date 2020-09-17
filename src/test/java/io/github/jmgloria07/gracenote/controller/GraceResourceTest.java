@@ -11,10 +11,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import io.github.jmgloria07.gracenote.object.Grace;
+import io.github.jmgloria07.gracenote.object.web.GraceForm;
 import io.github.jmgloria07.gracenote.service.GraceService;
 
-public class GraceControllerTest {
-	private static GraceController unit;
+public class GraceResourceTest {
+	private static GraceResource unit;
 	
 	private static final Grace MOCK_GRACE = new Grace();
 	private static final List<Grace> MOCK_GRACE_LIST = new ArrayList<Grace>();
@@ -24,11 +25,12 @@ public class GraceControllerTest {
 	
 	@BeforeAll
 	public static void init() {
-		unit = new GraceController();
+		unit = new GraceResource();
 		unit.graceService = mock(GraceService.class);
 		
 		doReturn(MOCK_GRACE).when(unit.graceService).getGrace(anyLong(), anyLong());
 		doReturn(MOCK_GRACE_LIST).when(unit.graceService).getGrace(anyLong());
+		doReturn(MOCK_GRACE).when(unit.graceService).postGrace(anyLong(), any(GraceForm.class));
 	}
 	
 	@Test
@@ -39,6 +41,12 @@ public class GraceControllerTest {
 	@Test
 	public void testGetGraceList() {
 		assertNotNull(unit.getGrace(MOCK_USER_ID, MOCK_ID));
+	}
+	
+	@Test
+	public void testPostGrace() {
+		GraceForm graceParam = new GraceForm();
+		assertNotNull(unit.postGrace(MOCK_USER_ID, graceParam));
 	}
 	
 	@AfterAll
