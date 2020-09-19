@@ -3,16 +3,16 @@
 ## About
 Grace Note is a social network aware application that allows a user to note and/or share what they are grateful for.
 
-This project is designed as a REST application that connects to an RDBMS repository.
+This project is designed as a REST application that connects to an RDBMS repository. You may also see its corresponding [Angular project](https://github.com/jmgloria07/gracenote-angular) that consumes the exposed REST API.
 
 ## Motivation
 There are three points that motivated me to do this project.
 
-First is to help everyone express their gratitudes. Studies have shown that detailing one's emotions through writing promotes one's mental well-being.<sup>1 2</sup> It's one way to cope with overwhelming stress.
+First is to help everyone express their gratitudes. Studies show that detailing one's emotions, especially gratitudes, through writing promotes one's mental well-being.<sup>1 2</sup> It's one way to cope with overwhelming stress.
 
-Another is to create a social network filled with positivity. Gratefulness is equated to positivity and I think it would be nice to scroll through a fully positive feed.
+Another is to create a social network feed filled with positivity. Gratefulness is equated to positivity and I believe it would be nice to scroll through a fully positive feed.
 
-Lastly is to practice the tools I'm learning: JPA, Spring Boot, Design patterns, etc. I want to get my hands dirty with these tools and learn how to work with them.
+Lastly is I want to create a project that fully utilizes what I'm learning. I want to design an API that fits the image I'm looking at and utilize the tools I'm learning, such as: JPA, Spring Boot, Angular, Design Patterns, etc.
 
 <sub><b>1</b>: [Expressive Writing for Mental Health](https://www.health.harvard.edu/newsletter_article/expressive-writing-for-mental-health). Retrieved September 17, 2020.</sub>
 
@@ -45,19 +45,20 @@ Basic REST methods. Please see /swagger-ui/index.html for other methods and deta
 - GET /users/{user}/graces/ retrieves all graces associated with the user.
 - GET /users/{user}/graces/{grace} retrieves a single grace associated with the user and the ID.
 - POST /users/{user}/graces/ post a grace.
-- (on progress) GET /openings/
-- (on progress) GET /openings/{opening}
+- GET /openings/
+- GET /openings/{opening}
 - (to follow) GET /users/{user}/
 - (to follow) DELETE /users/{user}/grace/{grace-id} delete a grace.
 - (to follow) POST /users/{user}/graces/{grace-id} update/edit a posted grace.
 
 ## Future Plans
 - Improve exception response.
+- Add hypermedia data.
 - Add security and authentication.
 - Create a UserController /{user} with corresponding REST methods.
 - Create logging implementation.
 - Improve Swagger documentation.
 - Add share to other social networks (use [Toktive](https://github.com/jmgloria07/toktive)? or perhaps let the client application do this with their corresponding provided share buttons).
-- Create a view/user interface. Looking into starting another project for this using Angular.
+- ~~Create a view/user interface. Looking into starting another project for this using Angular.~~ See https://github.com/jmgloria07/gracenote-angular.
 - Change DB supplier from H2. Using H2/in memory database for now as I don't have a server to run this yet.
 - Create some sort of implementation of Like.
