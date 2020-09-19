@@ -3,6 +3,7 @@ package io.github.jmgloria07.gracenote.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,13 +13,14 @@ import io.github.jmgloria07.gracenote.object.Opening;
 import io.github.jmgloria07.gracenote.object.exception.GraceNoteMethodNotSupportedException;
 import io.github.jmgloria07.gracenote.service.OpeningService;
 
+@CrossOrigin
 @RestController
 public class OpeningResource {
 
 	@Autowired
 	OpeningService openingService;
 	
-	@GetMapping("/openings/")
+	@GetMapping("/openings")
 	public List<Opening> getOpening() {
 		return openingService.getOpenings();
 	}
@@ -28,7 +30,7 @@ public class OpeningResource {
 		return openingService.getOpening(id);
 	}
 	
-	@PostMapping("/openings/")
+	@PostMapping("/openings")
 	public Opening postOpening() {
 		throw new GraceNoteMethodNotSupportedException();
 	}

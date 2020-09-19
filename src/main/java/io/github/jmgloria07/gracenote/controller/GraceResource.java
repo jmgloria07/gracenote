@@ -2,9 +2,8 @@ package io.github.jmgloria07.gracenote.controller;
 
 import java.util.List;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +14,7 @@ import io.github.jmgloria07.gracenote.object.Grace;
 import io.github.jmgloria07.gracenote.object.web.GraceForm;
 import io.github.jmgloria07.gracenote.service.GraceService;
 
+@CrossOrigin
 @RestController
 public class GraceResource {
 	 
@@ -26,14 +26,14 @@ public class GraceResource {
 		return graceService.getGrace(user, id);
 	}
 	
-	@GetMapping(path = "/{user}/graces/") 
+	@GetMapping(path = "/{user}/graces") 
 	public List<Grace> getGrace(@PathVariable long user) {
 		return graceService.getGrace(user);
 	}
 	
 	@PostMapping(path = "/{user}/graces")
 	public Grace postGrace(@PathVariable long user, 
-			@Valid @RequestBody GraceForm graceForm) {
+			@RequestBody GraceForm graceForm) {
 		return graceService.postGrace(user, graceForm);
 	}
 }
