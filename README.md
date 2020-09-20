@@ -3,10 +3,10 @@
 ## About
 Grace Note is a social network aware application that allows a user to note and/or share what they are grateful for.
 
-This project is designed as a REST application that connects to an RDBMS repository. You may also see its corresponding [Angular project](https://github.com/jmgloria07/gracenote-angular) that consumes the exposed REST API.
+This project is designed as a REST application that connects to an RDBMS repository. You may also see its corresponding [Angular project](https://github.com/jmgloria07/gracenote-angular) that consumes the exposed REST methods.
 
 ## Motivation
-There are three points that motivated me to do this project.
+There are three ideas that motivated me to do this project.
 
 First is to help everyone express their gratitudes. Studies show that detailing one's emotions, especially gratitudes, through writing promotes one's mental well-being.<sup>1 2</sup> It's one way to cope with overwhelming stress.
 
@@ -45,8 +45,8 @@ Basic REST methods. Please see /swagger-ui/index.html for other methods and deta
 - GET /users/{user}/graces/ retrieves all graces associated with the user.
 - GET /users/{user}/graces/{grace} retrieves a single grace associated with the user and the ID.
 - POST /users/{user}/graces/ post a grace.
-- GET /openings/
-- GET /openings/{opening}
+- GET /openings/ get a list of openings
+- GET /openings/{opening} get a single opening
 - (to follow) GET /users/{user}/
 - (to follow) DELETE /users/{user}/grace/{grace-id} delete a grace.
 - (to follow) POST /users/{user}/graces/{grace-id} update/edit a posted grace.
