@@ -1,5 +1,6 @@
 package io.github.jmgloria07.gracenote.dao;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -63,6 +64,7 @@ public class GraceDaoImpl implements GraceDao {
 		
 		grace.setUser(user);
 		grace.setOpening(opening);
+		grace.setDateCreated(new Date());//use date today
 		
 		return graceRepository.save(grace);
 	}

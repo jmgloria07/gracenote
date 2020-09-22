@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 
 @Entity
 public class User {
@@ -16,6 +17,7 @@ public class User {
 	
 	private String name;
 	
+	@OrderBy("dateCreated DESC")
 	@OneToMany(mappedBy = "user")
 	private List<Grace> graces;
 	

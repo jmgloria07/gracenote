@@ -1,5 +1,7 @@
 package io.github.jmgloria07.gracenote.object;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -23,6 +25,8 @@ public class Grace {
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JsonIgnore
 	private User user;
+
+	private Date dateCreated;
 
 	public Grace() {
 		
@@ -53,5 +57,13 @@ public class Grace {
 	}
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public Date getDateCreated() {
+		return dateCreated;
+	}
+
+	public void setDateCreated(Date dateCreated) {
+		this.dateCreated = dateCreated;
 	}
 }
