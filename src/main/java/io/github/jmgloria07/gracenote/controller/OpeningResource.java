@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.github.jmgloria07.gracenote.object.Opening;
-import io.github.jmgloria07.gracenote.object.exception.GraceNoteMethodNotSupportedException;
+import io.github.jmgloria07.gracenote.bean.Opening;
+import io.github.jmgloria07.gracenote.bean.exception.GraceNoteMethodNotSupportedException;
 import io.github.jmgloria07.gracenote.service.OpeningService;
 
 @CrossOrigin

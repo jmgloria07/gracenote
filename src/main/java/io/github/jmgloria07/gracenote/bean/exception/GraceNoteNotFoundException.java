@@ -1,4 +1,4 @@
-package io.github.jmgloria07.gracenote.object.exception;
+package io.github.jmgloria07.gracenote.bean.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

@@ -2,7 +2,7 @@ package io.github.jmgloria07.gracenote.dao;
 
 import java.util.List;
 
-import io.github.jmgloria07.gracenote.object.Grace;
+import io.github.jmgloria07.gracenote.bean.Grace;
 
 public interface GraceDao {
 

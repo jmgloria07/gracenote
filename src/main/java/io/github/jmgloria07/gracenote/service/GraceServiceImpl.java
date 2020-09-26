@@ -5,12 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import io.github.jmgloria07.gracenote.bean.Grace;
+import io.github.jmgloria07.gracenote.bean.Opening;
+import io.github.jmgloria07.gracenote.bean.User;
+import io.github.jmgloria07.gracenote.bean.exception.GraceNoteParameterException;
+import io.github.jmgloria07.gracenote.bean.web.GraceForm;
 import io.github.jmgloria07.gracenote.dao.GraceDao;
-import io.github.jmgloria07.gracenote.object.Grace;
-import io.github.jmgloria07.gracenote.object.Opening;
-import io.github.jmgloria07.gracenote.object.User;
-import io.github.jmgloria07.gracenote.object.exception.GraceNoteParameterException;
-import io.github.jmgloria07.gracenote.object.web.GraceForm;
 
 @Service
 public class GraceServiceImpl implements GraceService {

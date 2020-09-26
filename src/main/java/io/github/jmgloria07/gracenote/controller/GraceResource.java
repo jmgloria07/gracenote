@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.github.jmgloria07.gracenote.object.Grace;
-import io.github.jmgloria07.gracenote.object.web.GraceForm;
+import io.github.jmgloria07.gracenote.bean.Grace;
+import io.github.jmgloria07.gracenote.bean.web.GraceForm;
 import io.github.jmgloria07.gracenote.service.GraceService;
 
 @CrossOrigin

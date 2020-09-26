@@ -49,7 +49,7 @@ Basic REST methods. Please see /swagger-ui/index.html for other methods and deta
 - GET /openings/{opening} get a single opening
 - (to follow) GET /users/{user}/
 - (to follow) DELETE /users/{user}/grace/{grace-id} delete a grace.
-- (to follow) POST /users/{user}/graces/{grace-id} update/edit a posted grace.
+- (to follow) PUT /users/{user}/graces/{grace-id} update/edit a posted grace.
 
 ## Future Plans
 - Improve exception response.

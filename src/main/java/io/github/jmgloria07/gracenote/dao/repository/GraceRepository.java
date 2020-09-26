@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import io.github.jmgloria07.gracenote.object.Grace;
+import io.github.jmgloria07.gracenote.bean.Grace;
 
 public interface GraceRepository extends JpaRepository<Grace, Long> {
 

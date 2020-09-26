@@ -7,13 +7,13 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import io.github.jmgloria07.gracenote.bean.Opening;
+import io.github.jmgloria07.gracenote.bean.exception.GraceNoteNotFoundException;
 import io.github.jmgloria07.gracenote.dao.repository.OpeningRepository;
-import io.github.jmgloria07.gracenote.object.Opening;
-import io.github.jmgloria07.gracenote.object.exception.GraceNoteNotFoundException;
 
 @Transactional
 @Repository
-public class OpeningDaoImpl implements OpeningDao {
+public class DatabaseOpeningDao implements OpeningDao {
 
 	@Autowired
 	OpeningRepository openingRepository;

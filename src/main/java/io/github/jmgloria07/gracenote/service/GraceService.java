@@ -2,8 +2,8 @@ package io.github.jmgloria07.gracenote.service;
 
 import java.util.List;
 
-import io.github.jmgloria07.gracenote.object.Grace;
-import io.github.jmgloria07.gracenote.object.web.GraceForm;
+import io.github.jmgloria07.gracenote.bean.Grace;
+import io.github.jmgloria07.gracenote.bean.web.GraceForm;
 
 public interface GraceService {
 	

@@ -1,4 +1,4 @@
-package io.github.jmgloria07.gracenote.object;
+package io.github.jmgloria07.gracenote.bean;
 
 import java.util.List;
 

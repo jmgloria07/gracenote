@@ -10,9 +10,9 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import io.github.jmgloria07.gracenote.bean.Grace;
+import io.github.jmgloria07.gracenote.bean.web.GraceForm;
 import io.github.jmgloria07.gracenote.dao.GraceDao;
-import io.github.jmgloria07.gracenote.object.Grace;
-import io.github.jmgloria07.gracenote.object.web.GraceForm;
 
 public class GraceServiceImplTest {
 

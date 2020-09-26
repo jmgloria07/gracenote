@@ -10,18 +10,18 @@ import static org.mockito.Mockito.*;
 import java.util.Arrays;
 import java.util.Optional;
 
+import io.github.jmgloria07.gracenote.bean.Grace;
+import io.github.jmgloria07.gracenote.bean.Opening;
+import io.github.jmgloria07.gracenote.bean.User;
+import io.github.jmgloria07.gracenote.bean.exception.GraceNoteNotFoundException;
+import io.github.jmgloria07.gracenote.bean.exception.GraceNoteParameterException;
 import io.github.jmgloria07.gracenote.dao.repository.GraceRepository;
 import io.github.jmgloria07.gracenote.dao.repository.OpeningRepository;
 import io.github.jmgloria07.gracenote.dao.repository.UserRepository;
-import io.github.jmgloria07.gracenote.object.Grace;
-import io.github.jmgloria07.gracenote.object.Opening;
-import io.github.jmgloria07.gracenote.object.User;
-import io.github.jmgloria07.gracenote.object.exception.GraceNoteNotFoundException;
-import io.github.jmgloria07.gracenote.object.exception.GraceNoteParameterException;
 
-public class GraceDaoImplTest {
+public class DatabaseGraceDaoTest {
 	
-	private static GraceDaoImpl unit;
+	private static DatabaseGraceDao unit;
 	
 	private static final long MOCK_GRACE_ID = 1L;
 	private static final long MOCK_USER_ID = 1L;
@@ -33,7 +33,7 @@ public class GraceDaoImplTest {
 	
 	@BeforeAll
 	public static void init() {
-		unit = new GraceDaoImpl();
+		unit = new DatabaseGraceDao();
 		
 		unit.graceRepository = mock(GraceRepository.class);
 		unit.openingRepository = mock(OpeningRepository.class);

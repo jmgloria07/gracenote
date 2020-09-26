@@ -1,4 +1,4 @@
-package io.github.jmgloria07.gracenote.object.web;
+package io.github.jmgloria07.gracenote.bean.web;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;

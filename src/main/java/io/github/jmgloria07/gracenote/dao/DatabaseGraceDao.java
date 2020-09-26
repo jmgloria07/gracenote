@@ -9,18 +9,18 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import io.github.jmgloria07.gracenote.bean.Grace;
+import io.github.jmgloria07.gracenote.bean.Opening;
+import io.github.jmgloria07.gracenote.bean.User;
+import io.github.jmgloria07.gracenote.bean.exception.GraceNoteNotFoundException;
+import io.github.jmgloria07.gracenote.bean.exception.GraceNoteParameterException;
 import io.github.jmgloria07.gracenote.dao.repository.GraceRepository;
 import io.github.jmgloria07.gracenote.dao.repository.OpeningRepository;
 import io.github.jmgloria07.gracenote.dao.repository.UserRepository;
-import io.github.jmgloria07.gracenote.object.Grace;
-import io.github.jmgloria07.gracenote.object.Opening;
-import io.github.jmgloria07.gracenote.object.User;
-import io.github.jmgloria07.gracenote.object.exception.GraceNoteNotFoundException;
-import io.github.jmgloria07.gracenote.object.exception.GraceNoteParameterException;
 
 @Repository
 @Transactional
-public class GraceDaoImpl implements GraceDao {
+public class DatabaseGraceDao implements GraceDao {
 
 	@Autowired
 	GraceRepository graceRepository;

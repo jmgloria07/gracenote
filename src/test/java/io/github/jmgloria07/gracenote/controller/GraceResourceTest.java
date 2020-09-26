@@ -10,8 +10,8 @@ import static org.mockito.Mockito.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.github.jmgloria07.gracenote.object.Grace;
-import io.github.jmgloria07.gracenote.object.web.GraceForm;
+import io.github.jmgloria07.gracenote.bean.Grace;
+import io.github.jmgloria07.gracenote.bean.web.GraceForm;
 import io.github.jmgloria07.gracenote.service.GraceService;
 
 public class GraceResourceTest {
