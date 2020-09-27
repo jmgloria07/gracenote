@@ -1,6 +1,6 @@
 package io.github.jmgloria07.gracenote.dao;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,12 +34,12 @@ public class DatabaseGraceDao implements GraceDao {
 	@Override
 	public Grace getGrace(long userId, long graceId) {
 		User user = userRepository.findById(userId)
-				.orElseThrow(() -> new GraceNoteNotFoundException());
+				.orElseThrow(GraceNoteNotFoundException::new);
 		
 		return user.getGraces().stream()
 				.filter(grace -> grace.getId() == graceId)
 				.findFirst()
-				.orElseThrow(() -> new GraceNoteNotFoundException());
+				.orElseThrow(GraceNoteNotFoundException::new);
 	}
 
 	@Override
@@ -51,20 +51,20 @@ public class DatabaseGraceDao implements GraceDao {
 	@Override
 	public Grace postGrace(Grace grace) {
 		long userId = Optional.ofNullable(grace).map(Grace::getUser).map(User::getId)
-				.orElseThrow(() -> new GraceNoteParameterException());
+				.orElseThrow(GraceNoteParameterException::new);
 		
 		User user = userRepository.findById(userId)
-				.orElseThrow(() -> new GraceNoteNotFoundException());
+				.orElseThrow(GraceNoteNotFoundException::new);
 		
 		long openingId = Optional.ofNullable(grace).map(Grace::getOpening).map(Opening::getId)
-				.orElseThrow(() -> new GraceNoteParameterException());
+				.orElseThrow(GraceNoteParameterException::new);
 		
 		Opening opening = openingRepository.findById(openingId)
-				.orElseThrow(() -> new GraceNoteNotFoundException());
+				.orElseThrow(GraceNoteNotFoundException::new);
 		
 		grace.setUser(user);
 		grace.setOpening(opening);
-		grace.setDateCreated(new Date());//use date today
+		grace.setDateCreated(LocalDate.now());//use date today
 		
 		return graceRepository.save(grace);
 	}

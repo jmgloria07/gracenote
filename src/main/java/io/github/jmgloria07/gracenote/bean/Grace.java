@@ -1,6 +1,6 @@
 package io.github.jmgloria07.gracenote.bean;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -26,7 +26,7 @@ public class Grace {
 	@JsonIgnore
 	private User user;
 
-	private Date dateCreated;
+	private LocalDate dateCreated;
 
 	public Grace() {
 		
@@ -59,11 +59,11 @@ public class Grace {
 		this.user = user;
 	}
 
-	public Date getDateCreated() {
+	public LocalDate getDateCreated() {
 		return dateCreated;
 	}
 
-	public void setDateCreated(Date dateCreated) {
+	public void setDateCreated(LocalDate dateCreated) {
 		this.dateCreated = dateCreated;
 	}
 }
