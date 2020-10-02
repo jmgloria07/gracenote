@@ -13,6 +13,7 @@ import org.junit.jupiter.api.Test;
 import io.github.jmgloria07.gracenote.bean.Grace;
 import io.github.jmgloria07.gracenote.bean.web.GraceForm;
 import io.github.jmgloria07.gracenote.dao.GraceDao;
+import io.github.jmgloria07.gracenote.util.mapper.GraceFormToEntityMapper;
 
 public class GraceServiceImplTest {
 
@@ -28,10 +29,15 @@ public class GraceServiceImplTest {
 	public static void init() {
 		unit = new GraceServiceImpl();
 		unit.graceDao = mock(GraceDao.class);
+		unit.graceMapper = mock(GraceFormToEntityMapper.class);
 		
 		doReturn(MOCK_GRACE_LIST).when(unit.graceDao).getGrace(anyLong());
 		doReturn(MOCK_GRACE).when(unit.graceDao).getGrace(anyLong(), anyLong());
-		doReturn(MOCK_GRACE).when(unit.graceDao).postGrace(any(Grace.class));
+		
+		doReturn(unit.graceMapper).when(unit.graceMapper).withUserId(anyLong());
+		doReturn(MOCK_GRACE).when(unit.graceMapper).mapFormToEntity(any(GraceForm.class));
+		
+		doReturn(MOCK_GRACE).when(unit.graceDao).postGrace(MOCK_GRACE);
 	}
 	
 	@Test

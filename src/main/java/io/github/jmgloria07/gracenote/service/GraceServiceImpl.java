@@ -6,17 +6,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import io.github.jmgloria07.gracenote.bean.Grace;
-import io.github.jmgloria07.gracenote.bean.Opening;
-import io.github.jmgloria07.gracenote.bean.User;
 import io.github.jmgloria07.gracenote.bean.exception.GraceNoteParameterException;
 import io.github.jmgloria07.gracenote.bean.web.GraceForm;
 import io.github.jmgloria07.gracenote.dao.GraceDao;
+import io.github.jmgloria07.gracenote.util.mapper.GraceFormToEntityMapper;
 
 @Service
 public class GraceServiceImpl implements GraceService {
 
 	@Autowired
 	GraceDao graceDao;
+	
+	@Autowired
+	GraceFormToEntityMapper graceMapper;
 	
 	@Override
 	public Grace getGrace(long userId, long graceId) {
@@ -29,18 +31,10 @@ public class GraceServiceImpl implements GraceService {
 	}
 
 	@Override
-	public Grace postGrace(long userId, GraceForm graceForm) {
-		Grace graceDaoParam = new Grace();
-		graceDaoParam.setText(graceForm.getDisplayText());
-		
-		Opening openingDaoParam = new Opening();
-		openingDaoParam.setId(graceForm.getOpening());
-		graceDaoParam.setOpening(openingDaoParam);
-		
-		User userDaoParam = new User();
-		userDaoParam.setId(userId);
-		graceDaoParam.setUser(userDaoParam);
-		
+	public Grace postGrace(long userId, GraceForm graceForm) {		
+		Grace graceDaoParam = graceMapper
+				.withUserId(userId)
+				.mapFormToEntity(graceForm);		
 		return graceDao.postGrace(graceDaoParam);
 	}
 
