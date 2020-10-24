@@ -1,7 +1,13 @@
 package io.github.jmgloria07.gracenote.bean.web;
 
+import javax.validation.constraints.NotBlank;
+
 public class UserLoginForm {
+	
+	@NotBlank
 	private String username;
+	
+	@NotBlank
 	private String password;
 	
 	public String getUsername() {

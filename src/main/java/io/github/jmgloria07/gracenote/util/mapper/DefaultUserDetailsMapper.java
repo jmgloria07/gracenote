@@ -14,6 +14,8 @@ import org.springframework.security.core.userdetails.User;
 @Component
 public class DefaultUserDetailsMapper implements UserDetailsMapper {
 
+	private static final int MAX_ROLES_COUNT = 2;
+	
 	@Override
 	public UserDetails toUserDetails(io.github.jmgloria07.gracenote.bean.User user) {		
 		
@@ -27,7 +29,7 @@ public class DefaultUserDetailsMapper implements UserDetailsMapper {
 	
 	private List<SimpleGrantedAuthority> buildGrantedAuthorities(boolean isAdmin) {
 		
-		List<SimpleGrantedAuthority> result = new ArrayList<>(2);
+		List<SimpleGrantedAuthority> result = new ArrayList<>(MAX_ROLES_COUNT);
 		result.add(new SimpleGrantedAuthority(GracenoteConstants.ROLE_USER));
 		
 		if (isAdmin) 
