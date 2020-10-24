@@ -55,10 +55,7 @@ Basic REST methods. Please see /swagger-ui/index.html for other methods and deta
 ## Future Plans
 - Improve exception response.
 - Add hypermedia data.
-- Add security and authentication.
-- Create a UserController /{user} with corresponding REST methods.
 - Create logging implementation.
-- Improve Swagger documentation.
 - Add share to other social networks (use [Toktive](https://github.com/jmgloria07/toktive)? or perhaps let the client application do this with their corresponding provided share buttons).
 - ~~Create a view/user interface. Looking into starting another project for this using Angular.~~ See https://github.com/jmgloria07/gracenote-angular.
 - Change DB supplier from H2. Using H2/in memory database for now as I don't have a server to run this yet.
