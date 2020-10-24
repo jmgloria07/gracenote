@@ -13,6 +13,7 @@ import java.util.List;
 import io.github.jmgloria07.gracenote.bean.Grace;
 import io.github.jmgloria07.gracenote.bean.web.GraceForm;
 import io.github.jmgloria07.gracenote.service.GraceService;
+import io.github.jmgloria07.gracenote.service.UserService;
 
 public class GraceResourceTest {
 	private static GraceResource unit;
@@ -27,6 +28,7 @@ public class GraceResourceTest {
 	public static void init() {
 		unit = new GraceResource();
 		unit.graceService = mock(GraceService.class);
+		unit.userService = mock(UserService.class);
 		
 		doReturn(MOCK_GRACE).when(unit.graceService).getGrace(anyLong(), anyLong());
 		doReturn(MOCK_GRACE_LIST).when(unit.graceService).getGrace(anyLong());
@@ -35,18 +37,18 @@ public class GraceResourceTest {
 	
 	@Test
 	public void testGetSingleGrace() {
-		assertNotNull(unit.getGrace(MOCK_USER_ID));
+		assertNotNull(unit.retrieveGraces(MOCK_USER_ID));
 	}
 	
 	@Test
 	public void testGetGraceList() {
-		assertNotNull(unit.getGrace(MOCK_USER_ID, MOCK_ID));
+		assertNotNull(unit.retrieveGrace(MOCK_USER_ID, MOCK_ID));
 	}
 	
 	@Test
 	public void testPostGrace() {
 		GraceForm graceParam = new GraceForm();
-		assertNotNull(unit.postGrace(MOCK_USER_ID, graceParam));
+		assertNotNull(unit.createGrace(MOCK_USER_ID, graceParam));
 	}
 	
 	@AfterAll

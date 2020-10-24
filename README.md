@@ -20,6 +20,7 @@ Lastly is I want to create a project that fully utilizes what I'm learning. I wa
 
 
 ## Setup
+
 I made this application in Eclipse 2020-06 (4.16.0), with full support for Java EE. Initial Spring classes and Maven config files are generated via Spring Initializr.
 
 To set this up in Eclipse, all you need to do is simply:
@@ -29,7 +30,7 @@ To set this up in Eclipse, all you need to do is simply:
 
 While this is created using Eclipse, it's not required build this project. I only went with this IDE since Eclipse is already installed on my machine.
 
-You may even use notepad and manually create the jar if you wish. Please look up for the equivalent steps for your preferred method/IDE.
+You may even use notepad and manually create the jar if you wish. Please look up for the equivalent steps for your preferred method/IDE. This only requires Java 8 to build and run.
 
 ## Usage 
 Simply run the project with Spring Boot, and it automatically creates all you need such as the web server already configured with a port together with the project deployed on it. You can do this at the console with the command:

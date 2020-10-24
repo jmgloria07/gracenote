@@ -3,6 +3,7 @@ package io.github.jmgloria07.gracenote.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,23 +16,24 @@ import io.github.jmgloria07.gracenote.service.OpeningService;
 
 @CrossOrigin
 @RestController
+@PreAuthorize("isAuthenticated()")
 public class OpeningResource {
 
 	@Autowired
 	OpeningService openingService;
 	
 	@GetMapping("/openings")
-	public List<Opening> getOpening() {
+	public List<Opening> retrieveAllOpenings() {
 		return openingService.getOpenings();
 	}
 	
 	@GetMapping("/openings/{id}")
-	public Opening getOpening(@PathVariable long id) {
+	public Opening retrieveOpening(@PathVariable long id) {
 		return openingService.getOpening(id);
 	}
 	
 	@PostMapping("/openings")
-	public Opening postOpening() {
+	public Opening createOpening() {
 		throw new GraceNoteMethodNotSupportedException();
 	}
 }

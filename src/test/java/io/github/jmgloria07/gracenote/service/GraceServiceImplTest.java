@@ -29,13 +29,13 @@ public class GraceServiceImplTest {
 	public static void init() {
 		unit = new GraceServiceImpl();
 		unit.graceDao = mock(GraceDao.class);
-		unit.graceMapper = mock(GraceFormToEntityMapper.class);
+		unit.graceFormToEntityMapper = mock(GraceFormToEntityMapper.class);
 		
 		doReturn(MOCK_GRACE_LIST).when(unit.graceDao).getGrace(anyLong());
 		doReturn(MOCK_GRACE).when(unit.graceDao).getGrace(anyLong(), anyLong());
 		
-		doReturn(unit.graceMapper).when(unit.graceMapper).withUserId(anyLong());
-		doReturn(MOCK_GRACE).when(unit.graceMapper).mapFormToEntity(any(GraceForm.class));
+		doReturn(unit.graceFormToEntityMapper).when(unit.graceFormToEntityMapper).withUserId(anyLong());
+		doReturn(MOCK_GRACE).when(unit.graceFormToEntityMapper).mapFormToEntity(any(GraceForm.class));
 		
 		doReturn(MOCK_GRACE).when(unit.graceDao).postGrace(MOCK_GRACE);
 	}

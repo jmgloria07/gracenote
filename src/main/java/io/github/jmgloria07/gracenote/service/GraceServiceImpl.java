@@ -18,7 +18,7 @@ public class GraceServiceImpl implements GraceService {
 	GraceDao graceDao;
 	
 	@Autowired
-	GraceFormToEntityMapper graceMapper;
+	GraceFormToEntityMapper graceFormToEntityMapper;
 	
 	@Override
 	public Grace getGrace(long userId, long graceId) {
@@ -32,7 +32,7 @@ public class GraceServiceImpl implements GraceService {
 
 	@Override
 	public Grace postGrace(long userId, GraceForm graceForm) {		
-		Grace graceDaoParam = graceMapper
+		Grace graceDaoParam = graceFormToEntityMapper
 				.withUserId(userId)
 				.mapFormToEntity(graceForm);		
 		return graceDao.postGrace(graceDaoParam);

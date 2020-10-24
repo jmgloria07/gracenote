@@ -25,7 +25,9 @@ public class DatabaseOpeningDao implements OpeningDao {
 
 	@Override
 	public Opening getOpening(long id) {
-		return openingRepository.findById(id).orElseThrow(() -> new GraceNoteNotFoundException());
+		return openingRepository
+				.findById(id)
+				.orElseThrow(GraceNoteNotFoundException::new);
 	}
 
 }

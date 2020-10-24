@@ -1,12 +1,11 @@
 package io.github.jmgloria07.gracenote.bean;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 
@@ -23,13 +22,15 @@ public class User {
 	
 	@OrderBy("dateCreated DESC")
 	@OneToMany(mappedBy = "user")
+	@JsonIgnore
 	private List<Grace> graces;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	private Role role;
+	private boolean admin;
 	
 	@JsonIgnore
 	private String passwordHash;
+	
+	private LocalDate dateCreated;
 	
 	public User() {
 		
@@ -59,12 +60,12 @@ public class User {
 		this.graces = graces;
 	}
 
-	public Role getRole() {
-		return role;
+	public boolean isAdmin() {
+		return admin;
 	}
 
-	public void setRole(Role role) {
-		this.role = role;
+	public void setAdmin(boolean admin) {
+		this.admin = admin;
 	}
 
 	public String getPasswordHash() {
@@ -74,4 +75,13 @@ public class User {
 	public void setPasswordHash(String passwordHash) {
 		this.passwordHash = passwordHash;
 	}
+
+	public LocalDate getDateCreated() {
+		return dateCreated;
+	}
+
+	public void setDateCreated(LocalDate dateCreated) {
+		this.dateCreated = dateCreated;
+	}
+	
 }
