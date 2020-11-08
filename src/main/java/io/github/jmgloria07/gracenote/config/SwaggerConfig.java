@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
+import io.github.jmgloria07.gracenote.util.GracenoteConstants;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
@@ -24,7 +25,7 @@ public class SwaggerConfig {
 	public Docket api() {
 		return new Docket(DocumentationType.SWAGGER_2)
 				.select()
-				.apis(RequestHandlerSelectors.any())
+				.apis(RequestHandlerSelectors.basePackage(GracenoteConstants.GRACENOTE_PACKAGE))
 				.paths(PathSelectors.any())
 				.build()
 				.apiInfo(apiInfo());
@@ -35,8 +36,8 @@ public class SwaggerConfig {
 			      "Gracenote API Documentation",
 			      "A journal of your gratitudes!",
 			      "1.0",
-			      "urn:tos",
-			      new Contact("pudding", "http://www.pudding.me", "pudding@pudding.me"),
+			      null,
+			      new Contact("@kohi_pudding", "https://www.pudding.coffee", "pudding@pudding.coffee"),
 			      "Apache 2.0",
 			      "http://www.apache.org/licenses/LICENSE-2.0",
 			      Collections.emptyList());
