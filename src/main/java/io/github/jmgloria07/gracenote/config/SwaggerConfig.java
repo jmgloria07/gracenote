@@ -38,8 +38,8 @@ public class SwaggerConfig {
 			      "1.0",
 			      null,
 			      new Contact("@kohi_pudding", "https://www.pudding.coffee", "pudding@pudding.coffee"),
-			      "Apache 2.0",
-			      "http://www.apache.org/licenses/LICENSE-2.0",
+			      "GNU GPLv3",
+			      "https://www.gnu.org/licenses/gpl-3.0.en.html",
 			      Collections.emptyList());
 	}
 }
