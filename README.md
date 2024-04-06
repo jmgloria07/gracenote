@@ -25,20 +25,20 @@ I made this application in Eclipse 2020-06 (4.16.0), with full support for Java 
 To set this up in Eclipse, all you need to do is simply:
 
 - Import the project via Git.
-- Run an `mvnw install` (or `mvn` if you prefer your own maven instance installed on your machine) and update the project.
+- Run an `mvnw install` (or `mvn` if you prefer your maven instance installed on your machine) and update the project.
 
-While this is created using Eclipse, it's not required build this project. I only went with this IDE since Eclipse is already installed on my machine.
+While this is created using Eclipse, it's not required to build this project. I only went with this IDE since Eclipse is already installed on my machine.
 
 You may even use notepad and manually create the jar if you wish. Please look up for the equivalent steps for your preferred method/IDE.
 
 ## Usage 
-Simply run the project with Spring Boot, and it automatically creates all you need such as the web server already configured with a port together with the project deployed on it. You can do this at the console with the command:
+Simply run the project with Spring Boot, and it automatically creates all you need, such as the web server already configured with a port together with the project deployed on it. You can do this at the console with the command:
 
 `mvnw spring-boot:run`
 
-Or simply run the Main class `io.github.jmgloria07.gracenote.GracenoteApplication` as a Java Application (through Eclipse) once the setup is done.
+Or simply run the Main class `io.github.jmgloria07.gracenote.GracenoteApplication` as a Java Application (through your IDE) once the setup is done.
 
-With this you can then run your server instance (usually localhost:8080) on your web browser and, write your graces.
+With this, you can then run your server instance (usually localhost:8080) on your web browser and, write your graces.
 
 ## REST Methods
 Basic REST methods. Please see /swagger-ui/index.html for other methods and details how they're used.
